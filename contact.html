@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--   Student name: Nguyen Hoang Trung Hieu
+       Student ID:   142914191  -->
+
+<head>
+  <meta charset="utf-8" />
+  <title>Hieu Computer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/Logo_icon.png" />
+  <script src="script.js"></script>
+  <script src="validate.js"></script>
+  <!-- bootstrap - font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body id="main-body">
+  <nav class="fixed-top">
+    <div id="menu-top">
+      <div class="menu">
+        <ul>
+          <li class="icon-home">
+            <a href="#" onclick="Home()">
+              <img src="images/Logo_w.png" alt="Logo" />
+            </a>
+          </li>
+          <li class="search-background">
+            <input id="search-keyword" type="text" class="text_" name="textMail" placeholder="Seach..." />
+            <button class="btn-search">
+              <i class="fa fa-search"></i>
+            </button>
+          </li>
+          <li>
+            <a href="index.html" class="active">Home</a>
+          </li>
+          <li>
+            <a href="index.html" class="active" onclick="filterPhone()">Phone</a>
+          </li>
+          <li>
+            <a href="index.html" class="active" onclick="filterLaptop()">Laptop</a>
+          </li>
+          <li>
+            <a href="index.html" class="active" onclick="filterAccessories()">Accessories</a>
+          </li>
+          <li>
+            <a href="index.html" class="active" onclick="filterDeals()">Deals</a>
+          </li>
+          <li>
+            <a href="contact.html" class="active">Contact Us</a>
+          </li>
+          <li>
+            <a href="#" class="cart">
+              <span class="icon-cart">
+                <span id="shopping-cart">
+                  <span class="fa fa-shopping-cart" style="font-size:36px"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <span id="count-item" data-count="0">0 item</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="from" style="text-align: center; max-width: 1300px; margin-top: 70px;">
+    <fieldset>
+      <legend>Contact Form</legend>
+      <form name="form1" method="POST" action="https://httpbin.org/post"
+        onsubmit='return formValidate(this)'>
+
+        <label><span style="color: red;">*</span>Email Address</label><br>
+        <input type="email" name='Email' placeholder="Your email address..." required><br>
+        <div id="error"></div>
+
+
+
+        <label><span style="color: red;">*</span>Your First Name</label><br>
+        <input required type="text" name="First Name" pattern="[a-zA-Z]*[a-zA-Z]" placeholder="Enter First Name"> <br>
+
+        <label>Your Last Name</label><br>
+        <input type="text" name="Last Name" placeholder="Enter Last Name"> <br>
+
+  
+        <label><span style="color: red;">*</span>Address</label><br>
+        <input required type='text' id='address' name='Address' placeholder="Enter your address" />
+        <div id="error1"></div>
+
+        <label><span style="color: red;">*</span>Province</label><br>
+        <select required name="Province">
+          <option value="" selected> - Province - </option>
+          <option value="AB">Alberta</option>
+          <option value="BC">British Columbia</option>
+          <option value="MB">Manitoba</option>
+          <option value="NB">New Brunswick</option>
+          <option value="NL">Newfoundland and Labrador</option>
+          <option value="NS">Nova Scotia</option>
+          <option value="ON">Ontario</option>
+          <option value="PE">Prince Edward Island</option>
+          <option value="QC">Quebec</option>
+          <option value="SK">Saskatchewan</option>
+          <option value="NT">Northwest Territories</option>
+          <option value="NU">Nunavut</option>
+          <option value="YT">Yukon</option>
+        </select>
+        <br>
+        <label for="cities"><span style="color: red;">*</span>City</label><br>
+        <input required type="text" list="cities-choice" id="cities" name="City">
+        <datalist id="cities-choice">
+          <option value="Toronto">
+          <option value="Quebec">
+          <option value="Vancouver">
+          <option value="Calgary">
+          <option value="Ottawa">
+          <option value="St.John's">
+          <option value="Charlottetown">
+          <option value="Saskatoon">
+          <option value="Whitehorse">
+          <option value="Halifax">
+          <option value="Banff">
+          <option value="London">
+        </datalist>
+        <br>
+
+        <label for="postal-code"><span style="color: red;">*</span>Postal Code</label><br>
+        <input required type="text" name="Postal-Code" placeholder="A1B1C1"
+          pattern="^[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ][0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]$"
+          input="setCustomValidity('The postal code should not has a space')">
+        <!--The letter D,F,I,O,Q,U is not accepted in Postal Code of Canada, and it cannot start with W or Z-->
+        <br>
+        <span style="color: red; font-weight: bold;">*</span>
+        <input type="radio" id="Q" name="Status" value="Question" onclick="ignoreBox()" required>
+        <label for="Q">Question</label>
+        <input type="radio" id="Cmt" name="Status" value="Commment" onclick="ignoreBox()">
+        <label for="Cmt">Comment</label>
+        <input type="radio" id="Order" name="Status" value="Order Problem" onclick="showBox()">
+        <label for="Order">Order Problem</label>
+        <div id="error2"></div>
+        <br><textarea name="Reason" cols="48" rows="5" style="border-radius: 5px;" maxlength="5000"
+          placeholder="Describe your issue, the box is limited to 5000 characters."></textarea><br>
+
+        <input style="background-color: #4a90e2; color:white; border-radius: 5px; padding: 5px 10px;" type="reset"
+          value=" Reset ">
+        <input style="background-color: #4a90e2; color:white; border-radius: 5px; padding: 5px 10px;" type="submit"
+          value="Submit">
+      </form>
+    </fieldset>
+    <h4 style="float: left; margin-left: 30%; margin-top: 35px;"> <span style="color: red;">*</span> All fields marked
+      with this mark are required.
+    </h4>
+  </div>
+
+  <footer id="footer">
+    <div class="footer-content">
+      <div class="col-1">
+        <h3>Shop</h3>
+        <ul>
+          <li>
+            <a href="#">Offer</a>
+          </li>
+          <li>
+            <a href="#">FAQ</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-2">
+        <h3>Support</h3>
+        <ul>
+          <li>
+            <a href="#">Live Chat</a>
+          </li>
+          <li>
+            <a href="#">Contact Us</a>
+          </li>
+          <li>
+            <a href="#">Service Location</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-3">
+        <h3>About Us</h3>
+        <ul>
+          <li>
+            <a href="#">Name: Nguyen Hoang Trung Hieu</a>
+          </li>
+          <li>
+            <a href="#">Email: hthnguyen@myseneca.ca</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-4">
+        <h3>Subcribe</h3>
+        <h4>Be the first to know</h4>
+        <p style="text-align: justify;">
+          Sign up to stay in the loop about the hottest deals, coolest new products, and exclusive
+          sales events.
+        </p>
+        <form id="form-email" method="POST" action="https://formspree.io/xlepvdrq">
+          <input type="email" name='EmailSubcribe' placeholder="Email address..."  style="width: 240px; color: black !important; border: none;">
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
+    <div class="following">
+      <h3>Follow Us</h3>
+      <a href="#" class="fa fa-facebook"></a>
+      <a href="#" class="fa fa-twitter"></a>
+      <a href="#" class="fa fa-google"></a>
+      <a href="#" class="fa fa-linkedin"></a>
+      <a href="#" class="fa fa-youtube"></a>
+      <a href="#" class="fa fa-instagram"></a>
+    </div>
+  </footer>
+</body>
+
+</html>
