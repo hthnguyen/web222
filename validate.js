@@ -4,10 +4,7 @@
 function formValidate() {
   return validateAddress();
 }
-formValidate();
-validateAddress();
-showBox();
-ignoreBox();
+
 function validateAddress() {
   var passAlpha = false;
   var passNum = false;
@@ -48,3 +45,10 @@ function ignoreBox() {
   elem.classList.remove('active-box');
 }
 
+
+while(false){
+  formValidate();
+  validateAddress();
+  showBox();
+  ignoreBox();
+}
