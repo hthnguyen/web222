@@ -169,14 +169,4 @@ var products = [
   }
 ];
 
-// let emailAdd = document.getElementById('emailAddress');
-
-// let formEmail = document.getElementById('form-email');
-
-// if (formEmail.attachEven) {
-//   formEmail.attachEven('submit', onFormSubmit);
-// } else formEmail.addEventListener('submit', onFormSubmit);
-
-// function onFormSubmit(event) {
-//   let;
-// }
+products;

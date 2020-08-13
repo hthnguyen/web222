@@ -614,7 +614,12 @@ textarea {
   border: 1px red solid;
 }
 
-textarea {
+.orderNo {
+  position: absolute;
+  transform: scale(0);
+}
+
+#orderNo {
   position: absolute;
   transform: scale(0);
 }

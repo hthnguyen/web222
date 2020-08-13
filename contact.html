@@ -73,20 +73,16 @@
     <fieldset>
       <legend>Contact Form</legend>
       <form name="form1" method="POST" action="https://httpbin.org/post"
-        onsubmit='return formValidate(this)'>
+        onsubmit='return formValidate()'>
 
         <label><span style="color: red;">*</span>Email Address</label><br>
         <input type="email" name='Email' placeholder="Your email address..." required><br>
-        <div id="error"></div>
-
-
-
+        
         <label><span style="color: red;">*</span>Your First Name</label><br>
         <input required type="text" name="First Name" pattern="[a-zA-Z]*[a-zA-Z]" placeholder="Enter First Name"> <br>
 
         <label>Your Last Name</label><br>
         <input type="text" name="Last Name" placeholder="Enter Last Name"> <br>
-
   
         <label><span style="color: red;">*</span>Address</label><br>
         <input required type='text' id='address' name='Address' placeholder="Enter your address" />
@@ -130,7 +126,7 @@
 
         <label><span style="color: red;">*</span>Postal Code</label><br>
         <input required type="text" name="Postal-Code" placeholder="A1B1C1"
-          pattern="^[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ][0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]$">
+          pattern="^[abceghjklmnprstvxyABCEGHJKLMNPRSTVXY][0-9][abceghjklmnprstvxyABCEGHJKLMNPRSTVWXYZ] ?[0-9][abceghjklmnprstvxyABCEGHJKLMNPRSTVWXYZ][0-9]$">
         <!--The letter D,F,I,O,Q,U is not accepted in Postal Code of Canada, and it cannot start with W or Z-->
         <br>
         <span style="color: red; font-weight: bold;">*</span>
@@ -139,15 +135,25 @@
         <input type="radio" id="Cmt" name="Status" value="Commment" onclick="ignoreBox()">
         <label for="Cmt">Comment</label>
         <input type="radio" id="Order" name="Status" value="Order Problem" onclick="showBox()">
-        <label for="Order">Order Problem</label>
+        <label for="Order">Order Problem</label><br>
+    
+        <label class="orderNo"><span style="color: red;">*</span>Order Number</label><br>
+        <input class="orderNo" type="text" maxlength="8" style="max-width: 230px;" name="Order_Number" placeholder="Enter your Order Number" required>
+        
         <div id="error2"></div>
-        <br><textarea name="Reason" cols="48" rows="5" style="border-radius: 5px;" maxlength="5000"
-          placeholder="Describe your issue, the box is limited to 5000 characters."></textarea><br>
-
+        <textarea name="Reason" cols="48" rows="5" style="border-radius: 5px;" maxlength="5000"
+        placeholder="Write your question, comment or describe your issue, the box is limited to 5000 characters."></textarea><br>
+        <input type="hidden" name="Student Name" value="Nguyen Hoang Trung Hieu"><br>
+        <input type="hidden" name="Student ID" value="142914191"><br>
+        <input type="hidden" name="Date" value="12th Aug, 2020"><br>
+        
         <input style="background-color: #4a90e2; color:white; border-radius: 5px; padding: 5px 10px;" type="reset"
           value=" Reset ">
         <input style="background-color: #4a90e2; color:white; border-radius: 5px; padding: 5px 10px;" type="submit"
           value="Submit">
+
+
+
       </form>
     </fieldset>
     <h4 style="float: left; margin-left: 30%; margin-top: 35px;"> <span style="color: red;">*</span> All fields marked
